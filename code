@@ -1,0 +1,405 @@
+#include <stdio.h>
+#include <windows.h>
+#include <conio.h>
+#include <math.h>
+#include <locale.h>
+int main()
+{
+    int counterX = 1, counterY = 1, data[13][13],x=0,y=0,tc=0, perehod=1, knopka,f=1,ishod = 0,xtw=0,otw=0,c=1,tr = 0,dataX=0,dataY=0;
+    char pg[25][25],t;
+    while (tr == 0) {
+        while (f == 1) {
+            switch (c) {
+                case 1:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Длина поля = %d\n", x);
+                    printf("Высота поля = %d\n", y);
+                    printf("Количество крестиков для победы = %d\n", xtw);
+                    printf("Количество ноликов для победы = %d\n", otw);
+                    printf("======================================\n");
+                    printf("1.Ввести длину поля <--\n");
+                    printf("2.Ввести высоту поля\n");
+                    printf("3.Ввести количество крестиков для победы\n");
+                    printf("4.Ввести количество ноликов для победы\n");
+                    printf("5.Начать игру\n");
+                    printf("======================================\n");
+                    break;
+                case 2:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Длина поля = %d\n", x);
+                    printf("Высота поля = %d\n", y);
+                    printf("Количество крестиков для победы = %d\n", xtw);
+                    printf("Количество ноликов для победы = %d\n", otw);
+                    printf("======================================\n");
+                    printf("1.Ввести длину поля\n");
+                    printf("2.Ввести высоту поля <--\n");
+                    printf("3.Ввести количество крестиков для победы\n");
+                    printf("4.Ввести количество ноликов для победы\n");
+                    printf("5.Начать игру\n");
+                    printf("======================================\n");
+                    break;
+                case 3:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Длина поля = %d\n", x);
+                    printf("Высота поля = %d\n", y);
+                    printf("Количество крестиков для победы = %d\n", xtw);
+                    printf("Количество ноликов для победы = %d\n", otw);
+                    printf("======================================\n");
+                    printf("1.Ввести длину поля\n");
+                    printf("2.Ввести высоту поля\n");
+                    printf("3.Ввести количество крестиков для победы <--\n");
+                    printf("4.Ввести количество ноликов для победы\n");
+                    printf("5.Начать игру\n");
+                    printf("======================================\n");
+                    break;
+                case 4:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Длина поля = %d\n", x);
+                    printf("Высота поля = %d\n", y);
+                    printf("Количество крестиков для победы = %d\n", xtw);
+                    printf("Количество ноликов для победы = %d\n", otw);
+                    printf("======================================\n");
+                    printf("1.Ввести длину поля\n");
+                    printf("2.Ввести высоту поля\n");
+                    printf("3.Ввести количество крестиков для победы\n");
+                    printf("4.Ввести количество ноликов для победы <--\n");
+                    printf("5.Начать игру\n");
+                    printf("======================================\n");
+                    break;
+                case 5:
+                    system("cls");
+                    printf("======================================\n");
+                    printf("Длина поля = %d\n", x);
+                    printf("Высота поля = %d\n", y);
+                    printf("Количество крестиков для победы = %d\n", xtw);
+                    printf("Количество ноликов для победы = %d\n", otw);
+                    printf("======================================\n");
+                    printf("1.Ввести длину поля\n");
+                    printf("2.Ввести высоту поля\n");
+                    printf("3.Ввести количество крестиков для победы\n");
+                    printf("4.Ввести количество ноликов для победы\n");
+                    printf("5.Начать игру <--\n");
+                    printf("======================================\n");
+                    break;
+
+            }
+            knopka = getch();
+            if (knopka == 27)
+                return 0;
+            if ((knopka >= 49) && (knopka <= 53))
+                c = knopka - 48;
+            if (knopka == 13)
+                switch (c) {
+                    case 1:
+                        printf("Введите длину поля(1-12):\n");
+                        while ((scanf("%d", &x) != 1) || (x > 12) || (x < 1)) {
+                            scanf("%*[^\n]");
+                            printf("Ошибка\nПовторите ввод:\n");
+                        }
+                        break;
+                    case 2:
+                        printf("Введите высоту поля(1-12):\n");
+                        while ((scanf("%d", &y) != 1) || (y > 12) || (y < 1)) {
+                            scanf("%*[^\n]");
+                            printf("Ошибка\nПовторите ввод:\n");
+                        }
+                        break;
+                    case 3:
+                        printf("Введите количество крестиков для победы(2-12):\n");
+                        while ((scanf("%d", &xtw) != 1) || (xtw > 12) || (xtw < 2)) {
+                            scanf("%*[^\n]");
+                            printf("Ошибка\nПовторите ввод:\n");
+                        }
+                        break;
+                    case 4:
+                        printf("Введите количество ноликов для победы(2-12):\n");
+                        while ((scanf("%d", &otw) != 1) || (otw > 12) || (otw < 2)) {
+                            scanf("%*[^\n]");
+                            printf("Ошибка\nПовторите ввод:\n");
+                        }
+                        break;
+                    case 5:
+                        if ((x != 0) && (y != 0) && (xtw != 0) && (otw != 0))
+                            f = 0;
+                        else
+                            printf("Заданы не все параметры!\n");
+                        break;
+                }
+            if (knopka == 224) {
+                knopka = getch();
+                switch (knopka) {
+                    case 72:
+                        c--;
+                        if (c < 1)
+                            c = 5;
+                        break;
+                    case 80:
+                        c++;
+                        if (c > 5)
+                            c = 1;
+                        break;
+
+                }
+            }
+
+
+        }
+        for (int i = 0; i < 25; i++) {
+            for (int j = 0; j < 25; j++)
+                pg[i][j] = 32;
+        }
+        for (int i = 0; i < 13; i++) {
+            for (int j = 0; j < 13; j++)
+                data[i][j] = 0;
+        }
+        system("cls");
+        counterX = 1; dataX = 0;
+        counterY = 1; dataY = 0;
+        perehod = 1; ishod = 0;
+        while (f == 0) {
+            if (perehod % 2 == 1){
+                printf("=============================================================\n");
+                printf("Сейчас ходят КРЕСТИКИ\n");
+                printf("Для победы крестиков = %d     Для победы ноликов = %d\n",xtw,otw);
+                printf("==============================================================\n");
+            }
+            else {
+                printf("==============================================================\n");
+                printf("Сейчас ходят НОЛИКИ\n");
+                printf("Для победы крестиков = %d     Для победы ноликов = %d\n",xtw,otw);
+                printf("==============================================================\n");
+            }
+            tc = 0;
+            for (int i = 0; i < x * 2 + 1; i++) {
+                if (tc % 2 == 0) {
+                    for (int j = 1; j < y * 2 + 1; j += 2) {
+                        pg[j][i] = 186;
+                    }
+                } else {
+                    for (int j = 0; j < y * 2 + 1; j += 2) {
+                        pg[j][i] = 205;
+                    }
+                }
+                tc++;
+            }
+            for (int i = 2; i <= x * 2; i += 2) {
+                pg[0][i] = 203;
+                pg[y * 2][i] = 202;
+            }
+            for (int i = 2; i <= y * 2; i += 2) {
+                pg[i][0] = 204;
+                pg[i][x * 2] = 185;
+            }
+            for (int i = 2; i < x * 2; i += 2) {
+                for (int j = 2; j < y * 2; j += 2)
+                    pg[j][i] = 206;
+            }
+            pg[0][0] = 201;
+            pg[y * 2][0] = 200;
+            pg[0][x * 2] = 187;
+            pg[y * 2][x * 2] = 188;
+            for (int i = 0; i < y * 2 + 1; i++) {
+                for (int j = 0; j < x * 2 + 1; j++) {
+                    if ((i == 1) && (j == 1) && (perehod == 1))
+                        printf("%c", 35);
+                    else
+                        printf("%1c", pg[i][j]);
+                }
+                printf("\n");
+            }
+            while (f == 0) {
+                knopka = getch();
+                if (knopka == 27)
+                    return 0;
+                if (knopka == 13) {
+                    if (pg[counterY][counterX] == 32) {
+                        if (perehod % 2 == 1) {
+                            pg[counterY][counterX] = 88;
+                            data[dataY][dataX] = 1;
+                        } else {
+                            pg[counterY][counterX] = 79;
+                            data[dataY][dataX] = 2;
+                        }
+                        perehod++;
+                        system("cls");
+                        int kX = 1, kY = 1;
+                        for (int i = 0; i < x; i++) { // проверка по иксу
+                            kX = 1;
+                            for (int j = 0; j < y; j++) {
+                                if ((data[i][j] == data[i][j + 1]) && ((data[i][j] == 1) || (data[i][j] == 2))) {
+                                    kX++;
+                                    if ((kX == xtw) || (kX == otw)) {
+                                        if (data[i][j] == 1)
+                                            ishod = 2; // kristiki win
+                                        else
+                                            ishod = 3; // noliki win
+                                        break;
+                                    }
+                                }
+                                else
+                                    kX = 1;
+                            }
+                        }
+                        for (int i = 0; i < 13; i++) {  // проверка по игрику
+                            kX = 1;
+                            for (int j = 0; j < 13; j++) {
+                                if ((data[j][i] == data[j+1][i]) && ((data[j][i] == 1) || (data[j][i] == 2))) {
+                                    kX++;
+                                    if ((kX == xtw) || (kX == otw)) {
+                                        if (data[j][i] == 1)
+                                            ishod = 2; // kristiki win
+                                        else
+                                            ishod = 3; // noliki win
+                                        break;
+                                    }
+                                }
+                                else
+                                    kX = 1;
+                            }
+                        }
+                        for (int m = 0; m < 13;m++) {
+                            kX = 1;
+                            for (int i = m, j = 0; i < 13; i++, j++) // диагональ проверка (нижняя главная)
+                            {
+                                if ((data[i][j] == data[i+1][j+1]) && ((data[i][j] == 1) || (data[i][j] == 2))) {
+                                    kX++;
+                                    if ((kX == xtw) || (kX == otw)) {
+                                        if (data[i][j] == 1)
+                                            ishod = 2; // kristiki win
+                                        else
+                                            ishod = 3; // noliki win
+                                        break;
+                                    }
+                                }
+                                else
+                                    kX = 1;
+                            }
+                        }
+                        for (int m = 0; m < 13;m++) {
+                            kX = 1;
+                            for (int j = m, i = 0; i < 13; i++, j++) // диагональ проверка (верхняя главная)
+                            {
+                                if ((data[i][j] == data[i+1][j+1]) && ((data[i][j] == 1) || (data[i][j] == 2))) {
+                                    kX++;
+                                    if ((kX == xtw) || (kX == otw)) {
+                                        if (data[i][j] == 1)
+                                            ishod = 2; // kristiki win
+                                        else
+                                            ishod = 3; // noliki win
+                                        break;
+                                    }
+                                }
+                                else
+                                    kX = 1;
+                            }
+                        }
+                        for (int m = 12; m >= 0;m--) {
+                            kX = 1;
+                            for (int i = m, j = 0; j < 13; i--, j++) // диагональ проверка (верхняя побочная)
+                            {
+                                if ((data[i][j] == data[i-1][j+1]) && ((data[i][j] == 1) || (data[i][j] == 2))) {
+                                    kX++;
+                                    if ((kX == xtw) || (kX == otw)) {
+                                        if (data[i][j] == 1)
+                                            ishod = 2; // kristiki win
+                                        else
+                                            ishod = 3; // noliki win
+                                        break;
+                                    }
+                                }
+                                else
+                                    kX = 1;
+                            }
+                        }
+                        if (ishod == 2)
+                        {
+                            printf("===============================\n");
+                            printf("ПОБЕДА КРЕСТИКОВ!\n");
+                            printf("===============================\n");
+                            getch();
+                            f = 1;
+                        }
+                        if (ishod == 3)
+                        {
+                            printf("===============================\n");
+                            printf("ПОБЕДА НОЛИКОВ!\n");
+                            printf("===============================\n");
+                            getch();
+                            f = 1;
+                        }
+                        if (perehod == (x * y + 1)) {
+                            printf("===============================\n");
+                            printf("НИЧЬЯ!\n");
+                            printf("===============================\n");
+                            getch();
+                            ishod = 1;
+                            f = 1;
+                            break;
+                        }
+                        rewind(stdin);
+                        break;
+                    } else
+                        printf("Место занято!\n");
+                }
+                if (knopka == 224) {
+                    knopka = getch();
+                    switch (knopka) {
+                        case 72: // вверх
+                            if (counterY - 2 >= 1) {
+                                counterY -= 2;
+                                dataY--;
+                                system("cls");
+                            }
+                            break;
+                        case 80: // вниз
+                            if (counterY + 2 < y * 2) {
+                                counterY += 2;
+                                dataY++;
+                                system("cls");
+                            }
+                            break;
+                        case 75: // влево
+                            if (counterX - 2 >= 1) {
+                                counterX -= 2;
+                                dataX--;
+                                system("cls");
+                            }
+                            break;
+                        case 77: // вправо
+                            if (counterX + 2 < x * 2) {
+                                counterX += 2;
+                                dataX++;
+                                system("cls");
+                            }
+                            break;
+                    }
+                    system("cls");
+                    if (perehod % 2 == 1){
+                        printf("=============================================================\n");
+                        printf("Сейчас ходят КРЕСТИКИ\n");
+                        printf("Для победы крестиков = %d     Для победы ноликов = %d\n",xtw,otw);
+                        printf("==============================================================\n");
+                    }
+                    else {
+                        printf("==============================================================\n");
+                        printf("Сейчас ходят НОЛИКИ\n");
+                        printf("Для победы крестиков = %d     Для победы ноликов = %d\n",xtw,otw);
+                        printf("==============================================================\n");
+                    }
+                    t = pg[counterY][counterX];
+                    pg[counterY][counterX] = 35;
+                    for (int i = 0; i < y * 2 + 1; i++) {
+                        for (int j = 0; j < x * 2 + 1; j++)
+                            printf("%1c", pg[i][j]);
+                        printf("\n");
+                    }
+                    pg[counterY][counterX] = t;
+                }
+            }
+        }
+    }
+}
